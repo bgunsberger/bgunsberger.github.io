@@ -1,15 +1,28 @@
-{
-  "applinks": {
-    "apps": [],
-    "details": [
-      {
-        "appID": "4BDVTDK2X4.com.mockgravity.App-Mover",
-        "paths": [
-          "/open/*",      // Match any URL under /open/
-          "/help/*",      // Match any URL under /help/
-          "*"             // Match all URLs (optional, use with caution)
-        ]
-      }
-    ]
-  }
+"applinks": {
+  "details": [
+    {
+      "appIDs": [ "4BDVTDK2X4.com.mockgravity.App-Mover"],
+      "components": [
+        {
+          "#": "no_universal_links",
+          "exclude": true,
+          "comment": "Matches any URL whose fragment equals no_universal_links and instructs the system not to open it as a universal link"
+        },
+        {
+          "/": "/buy/*",
+          "comment": "Matches any URL whose path starts with /buy/"
+        },
+        {
+          "/": "/help/website/*",
+          "exclude": true,
+          "comment": "Matches any URL whose path starts with /help/website/ and instructs the system not to open it as a universal link"
+        },
+        {
+          "/": "/help/*",
+          "?": { "articleNumber": "????" },
+          "comment": "Matches any URL whose path starts with /help/ and that has a query item with name 'articleNumber' and a value of exactly 4 characters"
+        }
+      ]
+    }
+  ]
 }
